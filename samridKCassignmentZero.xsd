@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="movies" type="moviesType"/>
+  <xs:complexType name="actorType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="DateOfBirth"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="actorsType">
+    <xs:sequence>
+      <xs:element type="actorType" name="actor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="movieType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="year"/>
+      <xs:element type="xs:string" name="genre"/>
+      <xs:element type="actorsType" name="actors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="moviesType">
+    <xs:sequence>
+      <xs:element type="movieType" name="movie"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
