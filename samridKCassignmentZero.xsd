@@ -1,28 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="movies" type="moviesType"/>
-  <xs:complexType name="actorType">
+
+  <xs:complexType name = "actorType">
     <xs:sequence>
-      <xs:element type="xs:string" name="name"/>
-      <xs:element type="xs:string" name="DateOfBirth"/>
+      <xs:element name = "name">
+        <xs:simpleType>
+          <xs:restriction base = "xs:string">
+            <xs:minLength value = "1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name = "DateOfBirth">
+        <xs:simpleType>
+          <xs:restriction base = "xs:date">
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="actorsType">
+
+  <xs:complexType name = "actorsType">
     <xs:sequence>
-      <xs:element type="actorType" name="actor"/>
+      <xs:element type = "actorType" name = "actor" maxOccurs = "unbounded" minOccurs = "1"/>
     </xs:sequence>
   </xs:complexType>
+
   <xs:complexType name="movieType">
     <xs:sequence>
-      <xs:element type="xs:string" name="title"/>
-      <xs:element type="xs:string" name="year"/>
-      <xs:element type="xs:string" name="genre"/>
-      <xs:element type="actorsType" name="actors"/>
+      <!--<xs:element type="xs:string" name="title"/>-->
+      <xs:element name = "title">
+        <xs:simpleType>
+          <xs:restriction base = "xs:string">
+            <xs:minLength value = "1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <!--<xs:element type="xs:string" name="year"/>-->
+      <xs:element name = "year">
+        <xs:simpleType>
+          <xs:restriction base = "xs:int">
+            <xs:pattern value = "\d{4}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <!--<xs:element type="xs:string" name="genre"/>-->
+      <xs:element name = "genre">
+        <xs:simpleType>
+          <xs:restriction base = "xs:string">
+            <xs:enumeration value = "Action"/>
+            <xs:enumeration value = "Adventure"/>
+            <xs:enumeration value = "Comedy"/>
+            <xs:enumeration value = "Drama"/>
+            <xs:enumeration value = "Fantasy"/>
+            <xs:enumeration value = "Horror"/>
+            <xs:enumeration value = "Mystery"/>
+            <xs:enumeration value = "Thriller"/>
+            <xs:enumeration value = "Western"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+
+      <xs:element type="actorsType" name = "actors" maxOccurs = "unbounded" minOccurs = "1"/>
+
     </xs:sequence>
   </xs:complexType>
+
   <xs:complexType name="moviesType">
     <xs:sequence>
-      <xs:element type="movieType" name="movie"/>
+      <xs:element type="movieType" name="movie" maxOccurs = "unbounded" minOccurs = "1"/>
     </xs:sequence>
+    <xs:attribute type="xs:string" name="schemaLocation"/>
   </xs:complexType>
+
 </xs:schema>

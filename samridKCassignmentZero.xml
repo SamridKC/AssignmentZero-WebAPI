@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<movies>
+
+<movies schemaLocation = "https://github.com/SamridKC/AssignmentZero-WebAPI/blob/master/samridKCassignmentZero.xsd">
     <movie>
-        <title>The Godfather</title>
-        <year>1972</year>
-        <genre>Drama</genre>
-        <actors>
-            <actor>
-                <name>Marlon Brando</name>
-                <DateOfBirth>1994-04-03</DateOfBirth>
-            </actor>
-        </actors>
+    <title>The Godfather</title>
+    <year>1972</year>
+    <genre>Drama</genre>
+    <actors>
+        <actor>
+            <name>Marlon Brando</name>
+            <DateOfBirth>1994-04-03</DateOfBirth>
+        </actor>
+        <actor>
+            <name>Al Pacino</name>
+            <DateOfBirth>1940-04-25</DateOfBirth>
+        </actor>
+    </actors>
     </movie>
 </movies>
